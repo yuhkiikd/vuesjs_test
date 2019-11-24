@@ -1,17 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/index.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <title>Vue.js test</title>
 </head>
 
 <body>
+
   <div id="app">
-    {{ message }}
+    名前：<input v-model="name">
+    コース：<input v-model="cource">
+    受講期：<input v-model="acceptancePeriod">
+    <br>
+    <button v-on:click="addStudent">入力した生徒を追加する</button>
+
+    <ul>
+      <li v-for="student in students" v-bind:key="student.id">
+        ID {{student.id}} /
+        名前 {{student.name}} /
+        コース {{student.cource}} /
+        受講期 {{student.acceptancePeriod}}
+      </li>
+    </ul>
   </div>
 
   <script src="js/index.js"></script>
